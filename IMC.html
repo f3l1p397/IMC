@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IMC</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body style="background:darkslategray">
+        <script>
+            var num=0
+            function imc1()
+            { 
+                imc = parseFloat(document.getElementById("txt_peso").value,10)/(parseFloat(document.getElementById("txt_estatura").value,10)*parseFloat(document.getElementById("txt_estatura").value,10))
+                imc = imc.toFixed(2)
+                return imc
+            }
+            function getImg()
+            {
+                if (imc1()<18.55){
+                    return document.getElementById("imagen").innerHTML="<img src='flaco.jpg'>"
+                }
+                if (imc1()>24.99){
+                    return document.getElementById("imagen").innerHTML="<img src='gordo.jpg'>"
+                }
+                if (imc1()>18.5 & imc1()<24.99){
+                    return document.getElementById("imagen").innerHTML="<img src='normal.jpg'>"
+                }
+            }
+        </script>                    
+        <h1 align="center"><span class="badge badge-secondary">IMC</span></h1>
+        <table id="tabla" border="1"  align="center">
+            <tr>
+                <td colspan="3" align="center">
+                    <div class="alert alert-primary" role="alert" align="center">INDICE DE MASA CORPORAL</div>
+                </td>
+                <td rowspan="3"><div id="imagen"><img src='signo.jpg'></div></td>
+            </tr>
+            <tr>
+                <td>PESO  (kg)</td>
+                <td>
+                    <input type="text" id="txt_peso" name="txt_peso" required placeholder="peso" />
+                </td>
+                </tr>
+            <tr>
+                <td>ESTATURA (mts)</td>
+                <td>
+                        <input type="text" id="txt_estatura" name="txt_estatura" required placeholder="estatura" />
+                </td>
+            </tr>
+            <tr align="center">
+                <td colspan="4">
+                    <button align="center" type="button" class="btn btn-outline-danger btn-lg" onclick="alert('Tu IMC es: ' + imc1()), getImg()" >CALCULAR</button>
+                </td>
+            </tr>
+        </table>   
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
